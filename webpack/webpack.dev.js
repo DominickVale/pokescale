@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const common = require('./webpack.common')
 const merge = require('webpack-merge')
 const path = require('path')
@@ -13,7 +12,6 @@ module.exports = merge(common, {
   devServer: {
     contentBase: 'dist',
   },
-  plugins: [new HtmlWebpackPlugin({ template: './index.html' })],
   module: {
     rules: [
       {
