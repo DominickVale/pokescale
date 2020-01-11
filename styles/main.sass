@@ -1,0 +1,38 @@
+//Font-related
+  
+@font-face
+  font-family: "Nintendo-DS-BIOS"
+  src: url("../assets/fonts/Nintendo-DS-BIOS.ttf") format("truetype")
+
+// Variables overrides
+// for bootstrap
+
+$primary: #CC0000
+$secondary: #3B4CCA
+$font-family-base: 'Nintendo-DS-BIOS'
+$font-size-base: 1.6rem;
+$line-height-base: 0.75;
+$h1-font-size: $font-size-base * 1.8
+$headings-line-height: 0.9
+$navbar-toggler-font-size: 1rem
+$jumbotron-bg: transparent
+$border-radius: 0
+
+// Custom sass
+
+.img__giratina
+  opacity: 0.1
+  position: fixed
+  top: 10vh
+  transform: scale(0.6)
+  z-index: -1
+
+footer
+  position: absolute
+  bottom: 0
+
+.ws-preline
+  white-space: pre-line
+
+// Imports
+@import '~bootstrap'
