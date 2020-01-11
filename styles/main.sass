@@ -4,35 +4,49 @@
   font-family: "Nintendo-DS-BIOS"
   src: url("../assets/fonts/Nintendo-DS-BIOS.ttf") format("truetype")
 
+
 // Variables overrides
 // for bootstrap
 
 $primary: #CC0000
 $secondary: #3B4CCA
 $font-family-base: 'Nintendo-DS-BIOS'
-$font-size-base: 1.6rem;
-$line-height-base: 0.75;
+$font-size-base: 1.6rem
+$line-height-base: 0.75
 $h1-font-size: $font-size-base * 1.8
 $headings-line-height: 0.9
 $navbar-toggler-font-size: 1rem
 $jumbotron-bg: transparent
 $border-radius: 0
+$headings-color: #1F202C
+$body-color: #51535D
+
 
 // Custom sass
-
-.img__giratina
-  opacity: 0.1
-  position: fixed
-  top: 10vh
-  transform: scale(0.6)
-  z-index: -1
 
 footer
   position: absolute
   bottom: 0
 
+.action
+  font-size: 2rem !important
+  min-width: $font-size-base * 6
+
 .ws-preline
   white-space: pre-line
 
+
 // Imports
 @import '~bootstrap'
+@import 'landing'
+@import 'app'
+
+
+// Media queries... Obviously
+@include media-breakpoint-up(sm)
+
+@include media-breakpoint-up(md)
+  .jumbotron
+    text-align: left !important
+
+@include media-breakpoint-up(lg)

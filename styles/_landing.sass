@@ -1,0 +1,30 @@
+.img__giratina
+  opacity: 0.1
+  position: fixed
+  top: 16vh
+  right: -22vw
+  transform: scale(0.5)
+  z-index: -1
+
+
+// Media queries... Obviously
+@include media-breakpoint-up(sm)
+  .img__giratina
+    transform: scale(0.7)
+    right: -19vw
+
+@include media-breakpoint-up(md)
+  .img__giratina
+    top: 0
+    opacity: 1
+    position: fixed
+    transform: scale(0.8)
+    right: -19vw
+  .jumbotron
+    text-align: left !important
+
+@include media-breakpoint-up(lg)
+  $font-size-base: 3rem
+  .img__giratina
+    transform: scale(1)
+    right: -5vw
