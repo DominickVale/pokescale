@@ -11,7 +11,7 @@
 $primary: #CC0000
 $secondary: #3B4CCA
 $font-family-base: 'Nintendo-DS-BIOS'
-$font-size-base: 1.6rem
+$font-size-base: 2rem
 $line-height-base: 0.75
 $h1-font-size: $font-size-base * 1.8
 $headings-line-height: 0.9
@@ -20,20 +20,42 @@ $jumbotron-bg: transparent
 $border-radius: 0
 $headings-color: #1F202C
 $body-color: #51535D
-
+$enable-responsive-font-sizes: true
+$navbar-toggler-border-radius: 50px
+$navbar-light-toggler-border-color: transparent
 
 // Custom sass
 
 footer
   position: absolute
+  padding: 2.4vw
   bottom: 0
 
+button
+  max-width: 14rem
+
+form
+  min-height: 10vh
+  max-height: 25vh
+  height: 50%
+
+.h-80vh
+  height: 80vh
+
 .action
+  padding: 0.8rem 2rem !important
   font-size: 2rem !important
   min-width: $font-size-base * 6
+  margin-top: 1vw
 
 .ws-preline
-  white-space: pre-line
+  white-space: pre-line !important
+
+.h-60
+  height: 60%
+
+.navbar-brand
+  margin-right: 0 !important
 
 
 // Imports
@@ -48,5 +70,15 @@ footer
 @include media-breakpoint-up(md)
   .jumbotron
     text-align: left !important
-
+  .navbar-brand
+    text-align: left !important
+    justify-self: start !important
+  .action
+    padding: 1rem 3rem !important
 @include media-breakpoint-up(lg)
+  .action
+    padding: 1.2rem 3.4rem !important
+@include media-breakpoint-up(xl)
+  nav
+    max-width: 75vw
+    margin: 0 auto

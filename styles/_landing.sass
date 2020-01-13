@@ -6,6 +6,10 @@
   transform: scale(0.5)
   z-index: -1
 
+article
+  max-width: 25rem
+  margin: 0 auto
+
 
 // Media queries... Obviously
 @include media-breakpoint-up(sm)
@@ -15,16 +19,20 @@
 
 @include media-breakpoint-up(md)
   .img__giratina
-    top: 0
+    top: 8vh
     opacity: 1
     position: fixed
-    transform: scale(0.8)
+    transform: scale(0.7)
     right: -19vw
   .jumbotron
     text-align: left !important
 
 @include media-breakpoint-up(lg)
-  $font-size-base: 3rem
+  .img__giratina
+    transform: scale(0.8)
+    right: -5vw
+
+@include media-breakpoint-up(xl)
   .img__giratina
     transform: scale(1)
-    right: -5vw
+    right: 0
