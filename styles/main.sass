@@ -10,49 +10,35 @@
 
 $primary: #CC0000
 $secondary: #3B4CCA
+$body-color: #51535D
+$text-muted: #B1B1B6
+$headings-color: #1F202C
+$border-radius: 0
+$enable-responsive-font-sizes: true
 $font-family-base: 'Nintendo-DS-BIOS'
 $font-size-base: 2rem
-$line-height-base: 0.75
 $h1-font-size: $font-size-base * 1.8
 $headings-line-height: 0.9
-$navbar-toggler-font-size: 1rem
 $jumbotron-bg: transparent
-$border-radius: 0
-$headings-color: #1F202C
-$body-color: #51535D
-$enable-responsive-font-sizes: true
-$navbar-toggler-border-radius: 50px
+$line-height-base: 0.75
 $navbar-light-toggler-border-color: transparent
+$navbar-toggler-font-size: 1rem
 
-// Custom sass
 
 footer
-  position: absolute
-  padding: 2.4vw
-  bottom: 0
+  padding: 3.2vh
 
-form
-  max-height: 25vh
-  max-width: 50vw
-  max-height: 20vh
-  min-height: 16vh
+.main__column
+  min-height: 26rem !important
 
 .action
-  padding: 0.8rem 2rem !important
+  padding: 0.8rem 4rem !important
   font-size: 2rem !important
   margin-top: 1vw
 
 .ws-preline
   white-space: pre-line !important
 
-.h-60
-  height: 60%
-.h-10
-  height: 10%
-.vh-80
-  height: 80vh
-.navbar-brand
-  margin-right: 0 !important
 
 // Imports
 @import '~bootstrap'
@@ -64,23 +50,17 @@ form
 @include media-breakpoint-up(sm)
 
 @include media-breakpoint-up(md)
-  figure
-    max-height: 100% !important
-    max-width: 100% !important
-  img
-    height: auto !important
-    min-width: auto !important
   .jumbotron
     text-align: left !important
   .navbar-brand
     text-align: left !important
     justify-self: start !important
   .action
-    padding: 1rem 3rem !important
+    padding: 1rem 4.2rem !important
 
 @include media-breakpoint-up(lg)
   .action
-    padding: 1.2rem 3.4rem !important
+    padding: 1.2rem 4.4rem !important
 
 @include media-breakpoint-up(xl)
   nav
