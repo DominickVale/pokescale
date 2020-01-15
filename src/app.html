@@ -16,48 +16,85 @@
 	</head>
 
 	<body>
-
-
 		<header>
-			<nav role="navigation" class="navbar navbar-expand-md navbar-light px-5">
-				<a href="./index.html" class="nav-link navbar-brand m-auto">Pokèscale</a>
-				<button
-					class="navbar-toggler position-absolute"
-					type="button"
-					data-toggle="collapse"
-					data-target="#main-navbar"
-					aria-controls="main-navbar"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
+			<div class="container-fluid">
+			<nav class="navbar navbar-expand-md navbar-light">
+				<div class="d-flex w-100">
+					<div class="w-100 d-md-none">
+						<button
+							class="navbar-toggler"
+							type="button"
+							data-toggle="collapse"
+							data-target="#navbarNav"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					</div>
+					<a class="navbar-brand text-center w-100" href="./index.html">Pokèscale</a>
+					<span class="w-100 d-md-none"></span>
+				</div>
+				<span class="w-100"></span>
+				<div
+					class="collapse navbar-collapse w-100 order-1 order-lg-0"
+					id="navbarNav"
 				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="main-navbar">
-					<ul class="navbar-nav ml-auto">
+					<ul class="navbar-nav ml-auto text-center">
 						<li class="nav-item">
-							<a href="./index.html" class="nav-link">about</a>
+							<a class="nav-link" href="./index.html">about</a>
 						</li>
-						<li class="nav-item">
-							<a href="./app.html" class="nav-link">scale</a>
+						<li class="nav-item active">
+							<a class="nav-link" href="./app.html">scale</a>
 						</li>
 					</ul>
 				</div>
 			</nav>
+		</div>
 		</header>
 
 		<main>
-			<div class="container-fluid px-5">
-				<div class="row mt-5">
+			<div class="container-fluid">
+				<div class="row justify-content-center">
+					<section class="d-flex flex-column justify-content-start">
+						<h1 class="text-center">You are Giratina!</h1>
+						<figure class="w-50 mx-auto flex-shrink-4">
+							<img
+								src="../assets/img/giratina.png"
+								class="img-fluid mx-auto"
+								alt="The mighty giratina weighing 750 kilograms!"
+							/>
+						</figure>
+						<form class="d-flex flex-column justify-content-start align-items-center mx-auto">
+							<div class="d-flex justify-content-center align-items-end">
+								<label for="height" class="">Height</label>
+								<input type="text" name="height"/>
+							</div>
+							<div class="d-flex justify-content-center align-items-end">
+								<label for="width" class="">Weight</label>
+								<input type="text" name="weight"/>
+							</div>
+							<button type="button" class="btn btn-block btn-primary action mt-4">&gt; Check!</button>
+							
+						</form>
+					</section>
 				</div>
 			</div>
 		</main>
 
-		<footer class="container-fluid bg-secondary text-center text-white ">
-				<p class="align-middle p-3 m-0">made by <a href="https://github.com/DominickVale" target="_blank"> Dominick V. </a>
-					for <a href="https://github.com/CodingGarden/seedling-school-01-frontend-project" target="_blank">Seedling School</a></p>
+		<footer class="container-fluid bg-secondary text-center text-white fixed-bottom">
+			<p class="align-middle m-0">
+				made by
+				<a href="https://github.com/DominickVale" target="_blank">
+					Dominick V.
+				</a>
+				for
+				<a
+					href="https://github.com/CodingGarden/seedling-school-01-frontend-project"
+					target="_blank"
+					>Seedling School</a
+				>
+			</p>
 		</footer>
 	</body>
-
 
 	<script
 		src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

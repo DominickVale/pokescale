@@ -31,21 +31,15 @@ footer
   padding: 2.4vw
   bottom: 0
 
-button
-  max-width: 14rem
-
 form
-  min-height: 10vh
   max-height: 25vh
-  height: 50%
-
-.h-80vh
-  height: 80vh
+  max-width: 50vw
+  max-height: 20vh
+  min-height: 16vh
 
 .action
   padding: 0.8rem 2rem !important
   font-size: 2rem !important
-  min-width: $font-size-base * 6
   margin-top: 1vw
 
 .ws-preline
@@ -53,10 +47,12 @@ form
 
 .h-60
   height: 60%
-
+.h-10
+  height: 10%
+.vh-80
+  height: 80vh
 .navbar-brand
   margin-right: 0 !important
-
 
 // Imports
 @import '~bootstrap'
@@ -68,6 +64,12 @@ form
 @include media-breakpoint-up(sm)
 
 @include media-breakpoint-up(md)
+  figure
+    max-height: 100% !important
+    max-width: 100% !important
+  img
+    height: auto !important
+    min-width: auto !important
   .jumbotron
     text-align: left !important
   .navbar-brand
@@ -75,9 +77,11 @@ form
     justify-self: start !important
   .action
     padding: 1rem 3rem !important
+
 @include media-breakpoint-up(lg)
   .action
     padding: 1.2rem 3.4rem !important
+
 @include media-breakpoint-up(xl)
   nav
     max-width: 75vw
