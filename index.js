@@ -1,3 +1,8 @@
-import { run } from './src/app'
+import {App} from './src/app'
+
+// eslint-disable-next-line no-unused-vars
 import main from './styles/main.sass'
-run();
+
+window.addEventListener('load', () => {
+  App.init()
+})
