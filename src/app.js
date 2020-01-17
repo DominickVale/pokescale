@@ -9,23 +9,23 @@ const ImagePokemon  = document.getElementById('img-pokemon')
 const Spinner       = document.getElementById('spinner')
 
 const API_URL = 'https://pokeapi.co/api/v2/'
+const SPRITES_API_URL = 'https://pokeres.bastionbot.org/images/pokemon/'
 
 /**
  * @todo 
- * Fetch sprite from some api and load image in ImagePokemon - current one is too low res
- * Implement caching of pokemon list
+ * Implement caching of pokemon list and images
  * (optional) add accuracy slidebar
  */
 
 
 
 // Just sorts by closest matching entry. Entry with the smaller difference from the input bubbles up
-const sortByDifference = (array, height, weight) => {
-  array.sort((pokemonA, pokemonB) => {
-    return(Math.abs(height - pokemonA.height) > Math.abs(height - pokemonB.height) 
-        && Math.abs(weight - pokemonA.weight) > Math.abs(weight - pokemonB.weight))
-  })
+const sortByDifference = (array, height, weight) =>{
+  array.sort((pokemonA, pokemonB) => 
+  Math.abs(height - pokemonA.height) > Math.abs(height - pokemonB.height) 
+  && Math.abs(weight - pokemonA.weight) > Math.abs(weight - pokemonB.weight))
 }
+
 
 const fetchPokemons = async () =>{
   const result = []
@@ -35,20 +35,21 @@ const fetchPokemons = async () =>{
 
     for(let entry of data.results){
       const pokemon = await fetch(entry.url)
-      const {weight, height, sprites} = await pokemon.json()
+      const {id, weight, height} = await pokemon.json()
     
       result.push({
           name: entry.name,
           weight: weight / 10,
           height: height * 10,
-          sprite: sprites.front_default
+          sprite: `${SPRITES_API_URL}${id}.png`
         })  
     }
   }
   catch(error) {DEBUG && console.error('Error in fetching pokèmon stats: ', error)}
 
-  return result || null
+  return result || 'No Pokèmons found...'
 }
+
 
 const findPokemon = async (height = 0, weight = 0) => {
   const results = []
@@ -61,20 +62,17 @@ const findPokemon = async (height = 0, weight = 0) => {
     if(Math.abs(height - pokemon.height) <= MAX_OFFSET && Math.abs(weight - pokemon.weight) <= MAX_OFFSET){ // Didn't want to use ternary for code legibility
     if(results.length <=MAX_RESULTS) {
       results.push(pokemon)
-      log('Pushing pokèmon in result list with: ', Math.abs(height - pokemon.height), ' ', Math.abs(weight - pokemon.weight))
+      log('Pushing Pokèmon in result list with: ', Math.abs(height - pokemon.height), ' ', Math.abs(weight - pokemon.weight))
       }
     }
   }
   sortByDifference(results, height, weight)
   log('Pokèmons: ', results)
-
-
   return results[0] //Return the best matching pokemon
 }
 
 
-const onCheckButtonClick = async(evt) => {
-  log(evt)
+const onCheckButtonClick = async () => {
   const height = TextboxHeight.value
   const weight = TextboxWeight.value
   Title.textContent = '...'
@@ -83,10 +81,11 @@ const onCheckButtonClick = async(evt) => {
   
   const matchingPokemon = await findPokemon(height, weight)
   log('Matching pokemon: ', matchingPokemon)
-
+  
   Title.textContent = matchingPokemon.name
   ImagePokemon.setAttribute('src', matchingPokemon.sprite)
-  ImagePokemon.className = 'img-fluid responsive__image scale'
+  ImagePokemon.setAttribute('alt', `An image of ${matchingPokemon.name}`)
+  ImagePokemon.className = 'img-fluid responsive__image'
   Spinner.className = 'd-none'
 }
 
