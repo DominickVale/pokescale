@@ -10,7 +10,7 @@ const Spinner       = document.getElementById('spinner')
 
 const API_URL = 'https://pokeapi.co/api/v2/'
 const SPRITES_API_URL = 'https://pokeres.bastionbot.org/images/pokemon/'
-
+const STORAGE_KEY = 'pokemonsList'
 /**
  * @todo 
  * Implement caching of pokemon list and images
@@ -28,24 +28,31 @@ const sortByDifference = (array, height, weight) =>{
 
 
 const fetchPokemons = async () =>{
-  const result = []
-  try{
-    const response = await fetch(`${API_URL}pokemon/?limit=200`).catch(error => console.error('Error in fetching pokèmon list: ', error))
-    const data = await response.json()
+  let result = []
+  if(!window.localStorage.getItem(STORAGE_KEY)){
+    try{
+      const response = await fetch(`${API_URL}pokemon/?limit=200`).catch(error => console.error('Error in fetching pokèmon list: ', error))
+      const data = await response.json()
 
-    for(let entry of data.results){
-      const pokemon = await fetch(entry.url)
-      const {id, weight, height} = await pokemon.json()
-    
-      result.push({
-          name: entry.name,
-          weight: weight / 10,
-          height: height * 10,
-          sprite: `${SPRITES_API_URL}${id}.png`
-        })  
+      for(let entry of data.results){
+        const pokemon = await fetch(entry.url)
+        const {id, weight, height} = await pokemon.json()
+      
+        result.push({
+            name: entry.name,
+            weight: weight / 10,
+            height: height * 10,
+            sprite: `${SPRITES_API_URL}${id}.png`
+          })  
+      }
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(result))
+
     }
+    catch(error) {  DEBUG && console.error('Error in fetching pokèmon stats: ', error)  }
+  } else {
+    log('Retrieving local storage data...')
+    result = JSON.parse(window.localStorage.getItem(STORAGE_KEY))
   }
-  catch(error) {DEBUG && console.error('Error in fetching pokèmon stats: ', error)}
 
   return result || 'No Pokèmons found...'
 }
