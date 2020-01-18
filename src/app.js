@@ -1,5 +1,5 @@
-/* eslint-disable no-useless-escape */
 import GiratinaImage from '../assets/img/giratina.png'
+import pokemonsList from '../assets/pokemonsList.json'
 
 const DEBUG = true
 const log = (...args) => DEBUG && console.info.apply(console, args)
@@ -12,12 +12,7 @@ const TextboxHeight = document.getElementById('textbox-height')
 const TextboxWeight = document.getElementById('textbox-weight')
 const Title         = document.getElementById('h1-title')
 
-const API_URL         = 'https://pokeapi.co/api/v2/'
-const SPRITES_API_URL = 'https://pokeres.bastionbot.org/images/pokemon/'
-const STORAGE_KEY     = 'pokemonsList'
-const API_LIMIT = 964
 
-let pokemons = []
 
 /**
  * @todo 
@@ -47,53 +42,6 @@ const sortByDifference = (array, height, weight) =>{
 
 
 /**
- * Fetches the Pokèmon list, then fills the result with objects containing the name, height, weight and sprite of each of them.
- * Then waits until all the promises are fulfilled.
- * @async
- * @returns {(promise|array)} the array of Pokèmons. 
- */
-const _fetchPokemons = async () =>{
-  let result = []
-  let promises = []
-
-  if(!window.localStorage.getItem(STORAGE_KEY)){
-    setTitle('Fetching Pokèmons...')
-    toggleSpinner()
-    try{
-      const response = await fetch(`${API_URL}pokemon/?limit=${API_LIMIT}`)
-      const data = await response.json()
-
-      for(let entry of data.results){
-        const pokemon = await fetch(entry.url)
-        const {id, weight, height} = await pokemon.json()
-        promises.push(pokemon)
-
-        result.push({
-            name: entry.name,
-            weight: weight / 10,
-            height: height * 10,
-            sprite: `${SPRITES_API_URL}${id}.png`
-          })  
-      }
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(result))
-
-    }
-    catch(error) {  DEBUG && console.error('Error in fetching pokèmon list: ', error)  }
-
-    await Promise.all(promises)  // wait for all the requests to be fullfilled
-    setTitle('Input your height and weight!')
-    toggleSpinner()
-  } else {
-    log('Retrieving local storage data...')
-    result = JSON.parse(window.localStorage.getItem(STORAGE_KEY))
-  }
-
-  return result
-}
-
-
-
-/**
  * Finds the correct Pokèmon by traversing the list and calculating the difference of the input height and weight against Pokèmons.
  * @param {number} [Height=0] - The input height
  * @param {number} [Weight=0] - The input weight
@@ -104,7 +52,7 @@ const findPokemon = async (height = 0, weight = 0) => {
   const MAX_RESULTS = 2
   const MAX_OFFSET = 30
 
-  for(let pokemon of pokemons){
+  for(let pokemon of pokemonsList){
     if(Math.abs(height - pokemon.height) <= MAX_OFFSET && Math.abs(weight - pokemon.weight) <= MAX_OFFSET){ // Didn't want to use ternary for code legibility
     if(results.length <=MAX_RESULTS) {
       results.push(pokemon)
@@ -169,7 +117,6 @@ const _init = async () => {
   ButtonCheck.addEventListener('click', onCheckButtonClick)
   TextboxHeight.addEventListener('keypress', inputValidation)
   TextboxWeight.addEventListener('keypress', inputValidation)
-  pokemons = await _fetchPokemons()
 }
 
 
