@@ -12,4 +12,8 @@ import {App} from './src/app'
 
 window.addEventListener('load', () => {
   App.init()
+  if('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').then(
+    () => console.info('Correctly installed service worker!'),
+    error => console.error('Couldn\'t install service worker... ', error)
+  )
 })

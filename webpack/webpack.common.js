@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
   entry: './index.js',
@@ -10,7 +11,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'app.html',
       template: './src/app.html',
-    })
+    }),
+    new WorkboxPlugin.GenerateSW({
+      swDest: 'sw.js',
+      skipWaiting: true,
+      clientsClaim: true
+    }),
   ],
   module: {
     rules: [
@@ -38,7 +44,7 @@ module.exports = {
             outputPath: 'fonts',
           }
         }
-      }
+      },
     ]
   }
 }
