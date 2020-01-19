@@ -10,12 +10,12 @@
   "description": "Pokèscale!",
   "icons": [
     {
-      "src": "imgs/icon_192x192.png",
+      "src": "/assets/img/icon_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "imgs/icon_512x512.png",
+      "src": "/assets/img/icon_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
