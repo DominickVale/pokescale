@@ -28,15 +28,15 @@ const toggleSpinner = () => Spinner.className === '' ? Spinner.className = 'd-no
 
 
 /**
- * Just sorts by closest matching entry. Entry with the smaller difference from the input bubbles up.
+ * Just sorts by closest matching entry. Entries with smaller difference from the input bubbles up.
  * @param {array} array - The array to sort
  * @param {number} height - The input height
  * @param {number} weight - The input weight
  */
 const sortByDifference = (array, height, weight) =>{
   array.sort((pokemonA, pokemonB) => 
-  Math.abs(height - pokemonA.height) > Math.abs(height - pokemonB.height) 
-  && Math.abs(weight - pokemonA.weight) > Math.abs(weight - pokemonB.weight))
+    Math.abs(weight - pokemonA.weight) > Math.abs(weight - pokemonB.weight)
+    || Math.abs(height - pokemonA.height) > Math.abs(height - pokemonB.height) ? 1 : -1)
 }
 
 
@@ -49,14 +49,14 @@ const sortByDifference = (array, height, weight) =>{
  */
 const findPokemon = async (height = 0, weight = 0) => {
   const results = []
-  const MAX_RESULTS = 2
-  const MAX_OFFSET = 30
+  const MAX_RESULTS = 50
+  const MAX_OFFSET = 20
 
   for(let pokemon of pokemonsList){
-    if(Math.abs(height - pokemon.height) <= MAX_OFFSET && Math.abs(weight - pokemon.weight) <= MAX_OFFSET){ // Didn't want to use ternary for code legibility
-    if(results.length <=MAX_RESULTS) {
+    if(Math.abs(height - pokemon.height) < MAX_OFFSET && Math.abs(weight - pokemon.weight) < MAX_OFFSET){ // Didn't want to use ternary for code legibility
+    if(results.length < MAX_RESULTS) {
       results.push(pokemon)
-      log('Pushing Pokèmon in result list with: ', Math.abs(height - pokemon.height), ' ', Math.abs(weight - pokemon.weight))
+      log('Pushing Pokèmon in result list with offsets: ', Math.abs(height - pokemon.height), ' ', Math.abs(weight - pokemon.weight))
       }
     }
   }
@@ -83,8 +83,8 @@ const inputValidation = (evt) => {
 
 
 const onCheckButtonClick = async () => {
-  const height = TextboxHeight.value
-  const weight = TextboxWeight.value
+  const height = parseInt(TextboxHeight.value)
+  const weight = parseInt(TextboxWeight.value)
   setTitle('...')
   ImagePokemon.className = 'img-fluid responsive__image invisible'
   toggleSpinner()
@@ -117,6 +117,7 @@ const _init = async () => {
   ButtonCheck.addEventListener('click', onCheckButtonClick)
   TextboxHeight.addEventListener('keypress', inputValidation)
   TextboxWeight.addEventListener('keypress', inputValidation)
+  log('Total Pokèmons count: ', pokemonsList.length)
 }
 
 
