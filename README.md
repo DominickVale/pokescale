@@ -1,9 +1,10 @@
-# Pokèscale
+# Pokèscale - [See it live on pokescale.netlify.com](https://pokescale.netlify.com/)
 
 ## What is this?
 
 > Ever wondered what your spirit Pokèmon would be? Well, now you can know it based off your height and weight! <br />
 > N.B Also works for your favorite pets!
+
 
 ## What is my motivation for creating this project?
 
@@ -17,7 +18,7 @@
 
 ## What 3rd Party API(s) will you integrate with?
 
-* [Pokèapi](https://pokeapi.co)
+* [Pokèapi](https://pokeapi.co)  (check note)
 * [Pokeres](https://pokeres.bastionbot.org/images/pokemon/)
 
 ## Tech Stack
@@ -50,3 +51,11 @@
 * Redefined the sass as i felt like more customization was needed.
 * I then started to define how the actual app's functionality should behave in more detail and put down into code.
 * While developing this app i've been investing much of the time prioritizing learning, but i tried to push commits at least twice a day.
+
+[Wireframes / Design - Figma](https://www.figma.com/file/CVhXqtclIVVRhrRsv8DrqE/Untitled?node-id=0%3A1)
+
+### Note
+> There's a branch called `alt` which contains an alternate `app.js` version which is the one actually supposed to use the REST Pokèapi.
+>I stopped using that method because i had to make ***964*** requests in order to correctly get a list of pokèmons with their respective height and weight. I decided then to just do it once, paste the content into `pokemonList.json` and simply use that instead of the aforementioned method. 
+> </br>
+> *964 = ~100mb in +~6minutes.* 
