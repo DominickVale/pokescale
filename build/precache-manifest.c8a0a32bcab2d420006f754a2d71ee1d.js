@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1b905e66a32f396b53e814f3d58bfa9d",
+    "revision": "f7addfa3d228cd271d0d96bd2b54c9c6",
     "url": "app.html"
   },
   {
@@ -34,16 +34,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "imgs/giratina.1cfce8048347e1d3c3d6e2c756a817a1.png"
   },
   {
-    "revision": "3aedc12617c289111b959dafdbd723fe",
+    "revision": "f157dcc54957fb3a5f1d67a265732de5",
     "url": "index.html"
   },
   {
-    "revision": "4898ad8381efb9c883e4",
+    "revision": "888e2122e3c2acdf2be8",
     "url": "main.3fdba88ecc2233d2c181.css"
   },
   {
-    "revision": "4898ad8381efb9c883e4",
-    "url": "main.ed2e7a47879ea38f85be.js"
+    "revision": "888e2122e3c2acdf2be8",
+    "url": "main.e25b99d9355eb8bf2b2f.js"
   },
   {
     "revision": "4a7a169b651af7edcd830c8eb708da8e",

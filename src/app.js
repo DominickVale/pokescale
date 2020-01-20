@@ -4,7 +4,7 @@ import pokemonsList from '../public/assets/pokemonsList.json'
 const DEBUG = true
 const NOT_LOADED = 'NOT_LOADED'
 const log = (...args) => DEBUG && console.info.apply(console, args)
-const getElementById = (id) => document.getElementById('check-button') || NOT_LOADED
+const getElementById = (id) => document.getElementById(id) || NOT_LOADED
 
 const ButtonCheck   = getElementById('check-button')
 const ImagePokemon  = getElementById('img-pokemon')
