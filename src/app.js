@@ -1,5 +1,5 @@
-import GiratinaImage from '../assets/img/giratina.png'
-import pokemonsList from '../assets/pokemonsList.json'
+import GiratinaImage from '../public/assets/img/giratina.png'
+import pokemonsList from '../public/assets/pokemonsList.json'
 
 const DEBUG = true
 const log = (...args) => DEBUG && console.info.apply(console, args)

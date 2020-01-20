@@ -10,7 +10,8 @@ module.exports = merge(common, {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: 'dist',
+    contentBase: path.join(__dirname, 'dist'),
+    port: 8080
   },
   module: {
     rules: [
@@ -23,5 +24,5 @@ module.exports = merge(common, {
         ]
       }
     ]
-  }
+  },
 })
