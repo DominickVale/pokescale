@@ -2,15 +2,16 @@ import GiratinaImage from '../public/assets/img/giratina.png'
 import pokemonsList from '../public/assets/pokemonsList.json'
 
 const DEBUG = true
+const NOT_LOADED = 'NOT_LOADED'
 const log = (...args) => DEBUG && console.info.apply(console, args)
+const getElementById = (id) => document.getElementById('check-button') || NOT_LOADED
 
-
-const ButtonCheck   = document.getElementById('check-button')
-const ImagePokemon  = document.getElementById('img-pokemon')
-const Spinner       = document.getElementById('spinner')
-const TextboxHeight = document.getElementById('textbox-height')
-const TextboxWeight = document.getElementById('textbox-weight')
-const Title         = document.getElementById('h1-title')
+const ButtonCheck   = getElementById('check-button')
+const ImagePokemon  = getElementById('img-pokemon')
+const Spinner       = getElementById('spinner')
+const TextboxHeight = getElementById('textbox-height')
+const TextboxWeight = getElementById('textbox-weight')
+const Title         = getElementById('h1-title')
 
 
 
@@ -114,9 +115,9 @@ const onCheckButtonClick = async () => {
 
 
 const _init = async () => {
-  ButtonCheck.addEventListener('click', onCheckButtonClick)
-  TextboxHeight.addEventListener('keypress', inputValidation)
-  TextboxWeight.addEventListener('keypress', inputValidation)
+  if(ButtonCheck   !== NOT_LOADED) ButtonCheck.addEventListener('click', onCheckButtonClick)
+  if(TextboxHeight !== NOT_LOADED) TextboxHeight.addEventListener('keypress', inputValidation)
+  if(TextboxWeight !== NOT_LOADED) TextboxWeight.addEventListener('keypress', inputValidation)
   log('Total Pokèmons count: ', pokemonsList.length)
 }
 
