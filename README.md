@@ -7,8 +7,7 @@
 
 ## What is my motivation for creating this project?
 
-> I really wanted to know what Pokèmon i was in relation to my weight... <br />
-> No, kidding, i just didn't have a better app idea.
+> I really wanted to know what Pokèmon i and my cats were in relation to my height and weight... <br />
 
 ## How will users interact with your web site?
 
