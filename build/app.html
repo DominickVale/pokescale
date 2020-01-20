@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+		<meta name="description" content="Website description" />
+		<meta name="keywords" content="Pokèmon, Scale, Guess pokèmon, what pokèmon am i, pokèmon quiz"/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="manifest" href="manifest.json">
+		<title>Pokèscale</title>
+	<link href="main.5e1819d5dc484a0ab1ae.css" rel="stylesheet"></head>
+
+	<body>
+		<header>
+			<div class="container-fluid">
+				<nav class="navbar navbar-expand-md navbar-light">
+					<div class="d-flex w-100">
+						<div class="w-100 d-md-none">
+							<button
+								class="navbar-toggler"
+								type="button"
+								data-toggle="collapse"
+								data-target="#navbarNav">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+						</div>
+						<a class="navbar-brand text-center w-100 mr-0" href="./index.html">Pokèscale</a>
+						<span class="w-100 d-md-none"></span>
+					</div>
+					<span class="w-100"></span>
+					<div
+						class="collapse navbar-collapse w-100 order-1 order-lg-0"
+						id="navbarNav" >
+						<ul class="navbar-nav ml-auto text-center">
+							<li class="nav-item">
+								<a class="nav-link" href="./index.html">about</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="./app.html">scale</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<div class="container-fluid">
+				<div class="row justify-content-center">
+					<div class="d-flex flex-column main__column">
+						<h1 class="text-center mx-auto" id="h1-title">
+							Input your height and&nbsp;weight!
+						</h1>
+						<figure class="text-center">
+							<img
+								src="imgs/giratina.1cfce8048347e1d3c3d6e2c756a817a1.png"
+								class="img-fluid responsive__image"
+								alt="The mighty giratina weighing 750 kilograms!"
+								id="img-pokemon"
+							/>
+							<div id="spinner" class="d-none">
+								<div class="d-flex justify-content-center">
+									<div class="spinner-border text-primary" role="status">
+										<span class="sr-only">Loading...</span>
+									</div>
+								</div>
+							</div>
+						</figure>
+						<form class="d-flex flex-column justify-content-start align-items-center mx-auto" >
+							<div class="d-flex justify-content-between align-items-center w-100">
+								<label for="height" class="">Height</label>
+								<div class="custom__textbox">
+									<input
+										type="text"
+										name="height"
+										maxlength="3"
+										pattern="\d{1,3}"
+										id="textbox-height"/>
+									<span class="measured__in">cm</span>
+								</div>
+							</div>
+							<div class="d-flex justify-content-between align-items-center mt-3 w-100">
+								<label for="width" class="">Weight</label>
+								<div class="custom__textbox">
+									<input
+										type="text"
+										name="weight"
+										maxlength="3"
+										pattern="\d{1,3}"
+										id="textbox-weight"/>
+									<span class="measured__in">kg</span>
+								</div>
+							</div>
+							<button type="button" class="btn btn-block btn-primary action mt-5" id="check-button">&gt; Check!</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="container-fluid bg-secondary text-center text-white fixed-bottom">
+			<p class="align-middle m-0">made by <a href="https://github.com/DominickVale" target="_blank">Dominick V.</a> for
+				<a href="https://github.com/CodingGarden/seedling-school-01-frontend-project" target="_blank">Seedling School</a>
+			</p>
+		</footer>
+	<script type="text/javascript" src="main.c4cce5b2feab9b9aa086.js"></script></body>
+
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"
+	></script>
+</html>

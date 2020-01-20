@@ -1,0 +1,23 @@
+{
+  "name": "Pokèscale",
+  "short_name": "Pokèscale",
+  "start_url": "/index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#CC0000",
+  "description": "Pokèscale!",
+  "icons": [
+    {
+      "src": "/assets/img/icon_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/img/icon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
