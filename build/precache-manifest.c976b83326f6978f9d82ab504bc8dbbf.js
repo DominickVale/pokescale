@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "457319b183963e4efd5354caa55da865",
+    "revision": "1b905e66a32f396b53e814f3d58bfa9d",
     "url": "app.html"
   },
   {
@@ -24,22 +24,26 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets/pokemonsList.json"
   },
   {
+    "revision": "7207ffbe891a8b37cb0258ec283ac76e",
+    "url": "favicon.ico"
+  },
+  {
     "url": "fonts/Nintendo-DS-BIOS.1888b71aa651100801cb2e473433f5ec.ttf"
   },
   {
     "url": "imgs/giratina.1cfce8048347e1d3c3d6e2c756a817a1.png"
   },
   {
-    "revision": "bbcee3a81df783e5e7eeba19daf00486",
+    "revision": "3aedc12617c289111b959dafdbd723fe",
     "url": "index.html"
   },
   {
-    "revision": "b356485f9120291c022c",
-    "url": "main.5e1819d5dc484a0ab1ae.css"
+    "revision": "4898ad8381efb9c883e4",
+    "url": "main.3fdba88ecc2233d2c181.css"
   },
   {
-    "revision": "b356485f9120291c022c",
-    "url": "main.c4cce5b2feab9b9aa086.js"
+    "revision": "4898ad8381efb9c883e4",
+    "url": "main.ed2e7a47879ea38f85be.js"
   },
   {
     "revision": "4a7a169b651af7edcd830c8eb708da8e",
