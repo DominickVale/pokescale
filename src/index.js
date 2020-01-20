@@ -8,7 +8,7 @@
 
 // eslint-disable-next-line no-unused-vars
 import main from './styles/main.sass'
-import {App} from './src/app'
+import {App} from './app'
 
 window.addEventListener('load', () => {
   App.init()
